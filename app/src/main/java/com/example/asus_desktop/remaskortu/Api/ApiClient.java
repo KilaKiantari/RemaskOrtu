@@ -2,6 +2,8 @@ package com.example.asus_desktop.remaskortu.Api;
 
 import com.example.asus_desktop.remaskortu.Model.ModelDaftarAnak;
 import com.example.asus_desktop.remaskortu.Model.ModelGrafikKerajinan;
+import com.example.asus_desktop.remaskortu.Model.ModelGrafikKeterangan;
+import com.example.asus_desktop.remaskortu.Model.ModelGrafikKeteranganOrganisasi;
 import com.example.asus_desktop.remaskortu.Model.ModelLogin;
 
 import retrofit2.Call;
@@ -43,6 +45,13 @@ public class ApiClient {
     public static GetGrafikKerajinanPendidikan services_get_grafik_pendidikan = new Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create()).build().create(ApiClient.GetGrafikKerajinanPendidikan.class);
+    public static GetGrafikKeterangan services_get_grafik_keterangan_pendidikan = new Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create()).build().create(ApiClient.GetGrafikKeterangan.class);
+
+    public static GetGrafikKeteranganOr services_get_grafik_keterangan_organisasi = new Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create()).build().create(ApiClient.GetGrafikKeteranganOr.class);
 
 
     public interface PostServices {
@@ -77,4 +86,15 @@ public class ApiClient {
         @GET("grafik/grafikpendidikanselisih/{id}")
         Call<ModelGrafikKerajinan> getGrafikKerajinanPendidikan(@Path("id") int id);
     }
+
+    public interface GetGrafikKeterangan {
+        @GET("grafikketerangan/grafikpendidikan/{id}")
+        Call<ModelGrafikKeterangan> getGrafikket(@Path("id") int id);
+    }
+
+    public interface GetGrafikKeteranganOr {
+        @GET("grafikketerangan/grafikorganisasi/{id}")
+        Call<ModelGrafikKeteranganOrganisasi> getGrafikketor(@Path("id") int id);
+    }
+
 }

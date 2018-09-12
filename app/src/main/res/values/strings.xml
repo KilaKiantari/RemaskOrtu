@@ -102,6 +102,7 @@
     <string name="title_hint">Enter Title</string>
     <string name="hint_description">Enter Description</string>
     <string name="set_alert">Set Alert</string>
+    <string name="score">SCORE</string>
     <string name="textview_date">Select Date</string>
     <string name="txt_time">Enter Time:</string>
     <string name="txt_edit_hint">Enter Title</string>

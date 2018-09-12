@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.asus_desktop.remaskortu.Grafik.LihatGarfik;
+
 /**
  * Created by Asus-Desktop on 7/27/2018.
  */

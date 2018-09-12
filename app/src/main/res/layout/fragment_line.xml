@@ -3,11 +3,37 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#ffffff">
+
+    <LinearLayout
+        android:layout_width="40dp"
+        android:layout_height="200dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/appBarLayout"
+        android:layout_marginTop="13dp"
+        android:orientation="horizontal"
+        >
+
+
+        <TextView
+            android:id="@+id/txtScore"
+            android:layout_marginLeft="10dp"
+            android:layout_width="20dp"
+            android:layout_height="161dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:rotation="-1"
+            android:text="N I L A I"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay"
         android:id="@+id/appBarLayout">
+
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -19,7 +45,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-
     <HorizontalScrollView
         android:id="@+id/horizontalScrollViewFloat"
         android:layout_width="fill_parent"
@@ -27,7 +52,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/appBarLayout"
-        android:layout_marginTop="13dp">
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="40dp">
 
         <view
             android:id="@+id/line_view_float"
@@ -40,10 +66,30 @@
         android:id="@+id/horizontalScrollView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/line_button"
         android:layout_alignParentRight="true"
         >
     </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/textKet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/horizontalScrollViewFloat"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="40dp"
+        android:text="Keterangan : "
+        android:textColor="#000"/>
+
+    <TextView
+        android:id="@+id/textKet2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/horizontalScrollViewFloat"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="40dp"
+        android:text="Grafik naik jika siswa telah mengerjakan tugas jauh jauh hari dari deadline dan sebaliknya, jika siswa mengerjakan tugas mendekati deadline maka grafik akan turun "
+        android:textColor="#000"/>
+
 
     <TextView
         android:id="@+id/textViewpend2"
@@ -52,19 +98,17 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textViewpendidikan"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp"
+        android:layout_marginLeft="40dp"
         android:text="Tingkatkan" />
 
     <TextView
         android:id="@+id/textViewpendidikan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_alignStart="@+id/textView4"
         android:layout_below="@+id/horizontalScrollViewFloat"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="110dp"
         android:background="#9C27B0"
+        android:layout_marginLeft="40dp"
         android:text="Pendidikan : " />
 
     <TextView
@@ -80,10 +124,9 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textViewor2"
-        android:layout_alignStart="@+id/textViewor2"
-        android:layout_below="@+id/textViewpendidikan"
-        android:layout_marginTop="53dp"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@+id/textViewpend2"
+        android:layout_marginTop="10dp"
         android:background="#e74c3c"
         android:text="Organisasi : " />
 

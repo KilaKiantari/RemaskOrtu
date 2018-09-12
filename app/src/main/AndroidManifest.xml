@@ -19,7 +19,7 @@
         </activity>
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".HistoriTugas.MainActivityHistori"></activity>
-        <activity android:name=".GrafikKerajinan"></activity>
+        <activity android:name=".Grafik.GrafikKerajinan"></activity>
     </application>
 
 </manifest>

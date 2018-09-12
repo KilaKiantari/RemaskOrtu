@@ -1,4 +1,4 @@
-package com.example.asus_desktop.remaskortu;
+package com.example.asus_desktop.remaskortu.Grafik;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
+
+import com.example.asus_desktop.remaskortu.R;
+import com.example.asus_desktop.remaskortu.Result;
 
 import java.util.ArrayList;
 

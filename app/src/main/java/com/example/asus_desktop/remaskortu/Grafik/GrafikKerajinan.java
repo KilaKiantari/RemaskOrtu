@@ -1,4 +1,4 @@
-package com.example.asus_desktop.remaskortu;
+package com.example.asus_desktop.remaskortu.Grafik;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -14,6 +14,10 @@ import android.widget.Toast;
 
 import com.example.asus_desktop.remaskortu.Api.ApiClient;
 import com.example.asus_desktop.remaskortu.Model.ModelGrafikKerajinan;
+import com.example.asus_desktop.remaskortu.Model.ModelGrafikKeterangan;
+import com.example.asus_desktop.remaskortu.Model.ModelGrafikKeteranganOrganisasi;
+import com.example.asus_desktop.remaskortu.R;
+import com.example.asus_desktop.remaskortu.Result;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +55,9 @@ public class GrafikKerajinan extends AppCompatActivity {
         final LineView lineViewFloat = (LineView) findViewById(R.id.line_view_float);
         final TextView tvSudah = (TextView) findViewById(R.id.textViewpend2);
         final TextView tvSudahor = (TextView) findViewById(R.id.textViewor2);
+//        final TextView tvScore = (TextView) findViewById(R.id.txtScore);
+//        tvScore.setText(R.string.score);
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -68,6 +75,58 @@ public class GrafikKerajinan extends AppCompatActivity {
 
         randomSet(lineViewFloat);
       //  return rootView;
+
+        ApiClient.services_get_grafik_keterangan_pendidikan.getGrafikket(1).enqueue(new Callback<ModelGrafikKeterangan>() {
+
+            public void onResponse(Call<ModelGrafikKeterangan> call, Response<ModelGrafikKeterangan> response) {
+                Log.e("Response Grafik Kerajin", "Code : " + response.code());
+                if (response.isSuccessful()) {
+                    // Toast.makeText(getActivity(), "Id siswa grafik = "+siswa_id, Toast.LENGTH_SHORT).show();
+                    Integer sudah = response.body().getJmlpendidikan();
+                    Integer belum = response.body().getJmlblmpendidikan();
+                    if(sudah>belum){
+                        tvSudah.setText("Kerajinan anak anda sudah meningkat, pertahankan kerajianan anak anda dengan selalu menemaninya  dan mengingatkannya akan tugas");
+                    }else if (belum>sudah){
+                        tvSudah.setText("Masih banyak tugas tugas yang belum anak anda kerjakan, dan grafik cenderung turun karena seringnya anak anda mengerjakan tugas dekat dengan deadline");
+                    }
+                } else {
+                    Toast.makeText(GrafikKerajinan.this, "Gagal menampilkan grafik", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ModelGrafikKeterangan> call, Throwable t) {
+                Toast.makeText(GrafikKerajinan.this, "" + t, Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        ApiClient.services_get_grafik_keterangan_organisasi.getGrafikketor(1).enqueue(new Callback<ModelGrafikKeteranganOrganisasi>() {
+
+            public void onResponse(Call<ModelGrafikKeteranganOrganisasi> call, Response<ModelGrafikKeteranganOrganisasi> response) {
+                Log.e("Response Grafik Kerajin", "Code : " + response.code());
+                if (response.isSuccessful()) {
+                    // Toast.makeText(getActivity(), "Id siswa grafik = "+siswa_id, Toast.LENGTH_SHORT).show();
+                    Integer sudah = response.body().getJmlor();
+                    Integer belum = response.body().getJmlblmor();
+                    if(sudah>belum){
+                        tvSudahor.setText("Kerajinan anak anda sudah meningkat, pertahankan kerajianan anak anda dengan selalu menemaninya dan mengingatkannya akan tugas");
+                    }else if (belum>sudah){
+                        tvSudahor.setText("Masih banyak tugas tugas yang belum anak anda kerjakan, dan grafik cenderung turun karena seringnya anak anda mengerjakan tugas dekat dengan deadline");
+                    }
+                } else {
+                    Toast.makeText(GrafikKerajinan.this, "Gagal menampilkan grafik", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ModelGrafikKeteranganOrganisasi> call, Throwable t) {
+                Toast.makeText(GrafikKerajinan.this, "" + t, Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 
     private void initLineView(LineView lineView) {

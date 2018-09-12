@@ -1,4 +1,4 @@
-package com.example.asus_desktop.remaskortu;
+package com.example.asus_desktop.remaskortu.Grafik;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.asus_desktop.remaskortu.Api.ApiClient;
 import com.example.asus_desktop.remaskortu.Model.ModelDaftarAnak;
+import com.example.asus_desktop.remaskortu.R;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -79,7 +80,7 @@ public class LihatGarfik extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
-        getActivity().setTitle("Daftar Anak ");
+        getActivity().setTitle("Grafik Anak");
 
 
 
